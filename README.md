@@ -50,7 +50,7 @@ These speakers all expose the same HTTP JSON API on port 80, so the module shoul
             - **THIS IS VERY IMPORTANT! IF YOU DON'T DO IT THE MODULE WILL NOT BE RUNNING!**
 4. **Try it!** Play something on your speakers and rotate the Flic Twist — the speaker volume should change
 
-## Filtering to a specific Twist or speaker
+## Multiple Speakers/Flic Twists?
 
 The volumne control targets the Virtual Speaker assigned to it however the Push and Double Push triggers are message specific. If you have more than one device you can set specific messages and update the `MSG_PLAY_PAUSE`, `MSG_NEXT`, and `MSG_PREVIOUS` values respectively so they're unique.
 
