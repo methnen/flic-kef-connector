@@ -1,6 +1,6 @@
-// KEF gen-2 HTTP client (LSX II, LSX II LT, LS50 Wireless II).
-// Mirrors the subset of pykefcontrol needed for volume + transport control.
-// Protocol reference: https://github.com/N0ciple/pykefcontrol
+// KEF gen-2 HTTP client (LSX II, LSX II LT, LS50 Wireless II)
+// Mirrors the subset of pykefcontrol needed for volume + transport control
+// Modeled after: https://github.com/N0ciple/pykefcontrol
 
 var http = require("http");
 
@@ -26,10 +26,12 @@ KefClient.prototype._getData = function (path, roles, callback) {
             callback(error, null);
             return;
         }
+       
         if (result.statusCode < 200 || result.statusCode >= 300) {
             callback("HTTP " + result.statusCode + " " + result.statusMessage, null);
             return;
         }
+       
         try {
             callback(null, JSON.parse(result.content));
         } catch (e) {
@@ -47,15 +49,18 @@ KefClient.prototype._setData = function (path, roles, value, callback) {
         headers: { "Content-Type": "application/json" },
         content: body,
     };
+    
     http.makeRequest(options, function (error, result) {
         if (error) {
             callback(error);
             return;
         }
+    
         if (result.statusCode < 200 || result.statusCode >= 300) {
             callback("HTTP " + result.statusCode + " " + result.statusMessage);
             return;
         }
+    
         callback(null);
     });
 };
@@ -66,7 +71,9 @@ KefClient.prototype.getVolume = function (callback) {
             callback(error, null);
             return;
         }
+       
         var value = Array.isArray(data) && data.length > 0 ? data[0] : data;
+       
         if (value && typeof value.i32_ === "number") {
             callback(null, value.i32_);
         } else {
@@ -77,6 +84,7 @@ KefClient.prototype.getVolume = function (callback) {
 
 KefClient.prototype.setVolume = function (volume, callback) {
     var clamped = Math.max(0, Math.min(100, Math.round(volume)));
+    
     this._setData(
         "player:volume",
         "value",
@@ -91,7 +99,9 @@ KefClient.prototype.getPlayerData = function (callback) {
             callback(error, null);
             return;
         }
+       
         var entry = Array.isArray(data) && data.length > 0 ? data[0] : data;
+       
         callback(null, entry);
     });
 };
