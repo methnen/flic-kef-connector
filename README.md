@@ -1,6 +1,6 @@
 # flic-kef-connector
 
-A [Flic Hub Studio](https://hubsdk.flic.io/) module that lets a **Flic Twist** control a **KEF gen-2 wireless speaker** over the local network. The HTTP calls in `kef.js` mirror the protocol implementation of the MIT-licensed Python library [`pykefcontrol`](https://github.com/N0ciple/pykefcontrol).
+A [Flic Hub Studio](https://hubsdk.flic.io/) module that lets a **Flic Twist** control a **KEF gen-2 wireless speaker** over the local network. The HTTP calls in `kef.js` mirror the protocol implementation of the MIT-licensed Python library [pykefcontrol](https://github.com/N0ciple/pykefcontrol).
 
 ## Supported speakers
 
@@ -48,7 +48,7 @@ These speakers all expose the same HTTP JSON API on port 80, so the module shoul
             - Look for `var SPEAKER_VIRTUAL_DEVICE_ID = "KEF";` and change `KEF` to the name you gave your Virtual Speakers in the Flic app
         - Click the Play button next to the module name in the Flic Hub Studio side bar
             - **THIS IS VERY IMPORTANT! IF YOU DON'T DO IT THE MODULE WILL NOT BE RUNNING!**
-4. **Try it!** Play something on yoru speakers and rotate the Flic Twist — the speaker volume should change
+4. **Try it!** Play something on your speakers and rotate the Flic Twist — the speaker volume should change
 
 ## Filtering to a specific Twist or speaker
 
