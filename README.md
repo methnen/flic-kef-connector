@@ -61,7 +61,6 @@ Leaving either empty means "accept any."
 - **Nothing happens when I rotate the Twist.** Confirm in the Flic Hub Studio log panel that you see `[twist] virtualDeviceUpdate` lines on rotation. If not, the Twist isn't paired as a Speaker virtual device — redo step 3 above. If you do see them but `meta.dimmableType` isn't `"Speaker"`, the virtual device is the wrong type.
 - **Rotation logs appear but the speaker doesn't respond.** Confirm `KEF_IP` is reachable from the Hub: from another device on the same LAN, open `http://<KEF_IP>/api/getData?path=player:volume&roles=value` in a browser. You should get a JSON response. If not, the speaker is offline or on a different VLAN.
 - **Volume changes feel laggy.** The module debounces volume writes by 100 ms while you're spinning. Final value lands within ~100 ms of you stopping. Increase or decrease `VOLUME_DEBOUNCE_MS` in `main.js` if you want different behavior.
-- **Play/pause does the wrong thing.** A single click queries the current state from the speaker and sends the opposite — if the speaker's reported `state` field isn't what we expect, edit `kef.js` (`KefClient.prototype.isPlaying`) to match.
 
 ## Credits & references
 
