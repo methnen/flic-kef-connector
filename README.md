@@ -54,8 +54,6 @@ These speakers all expose the same HTTP JSON API on port 80, so the module shoul
 
 The volumne control targets the Virtual Speaker assigned to it however the Push and Double Push triggers are message specific. If you have more than one device you can set specific messages and update the `MSG_PLAY_PAUSE`, `MSG_NEXT`, and `MSG_PREVIOUS` values respectively so they're unique.
 
-Leaving either empty means "accept any."
-
 ## Troubleshooting
 
 - **Nothing happens when I rotate the Twist.** Confirm in the Flic Hub Studio log panel that you see `[twist] virtualDeviceUpdate` lines on rotation. If not, the Twist isn't paired as a Speaker virtual device — redo step 3 above. If you do see them but `meta.dimmableType` isn't `"Speaker"`, the virtual device is the wrong type.
